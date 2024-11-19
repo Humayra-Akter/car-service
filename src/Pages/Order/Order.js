@@ -9,10 +9,11 @@ const Order = () => {
   const [user] = useAuthState(auth);
   const [orders, setOrders] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     const getOrders = async () => {
-      const email = user?.email;
-      const url = `http://localhost:5000/order?email=${email}`;
+      // const email = user?.email;
+      const url = `http://localhost:5000/order?email=${user?.email}`;
       try {
         const { data } = await axiosPrivate.get(url);
         setOrders(data);
@@ -26,6 +27,7 @@ const Order = () => {
     };
     getOrders();
   }, [user]);
+ 
   return (
     <div className="w-50 mx-auto">
       <h2>Your orders: {orders?.length}</h2>
