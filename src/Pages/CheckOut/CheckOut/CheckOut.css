@@ -1,0 +1,83 @@
+/* Checkout container with background image */
+.checkout-container {
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  position: relative;
+}
+
+/* Overlay to make text readable over the background */
+.overlay {
+  border-radius: 15px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Service title styling */
+.service-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0056b3;
+}
+
+/* Form styling */
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-input {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+}
+
+.form-input:focus {
+  box-shadow: 0 0 4px #0056b3;
+}
+
+.form-submit {
+  background: #007bff;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.form-submit:hover {
+  background: #0056b3;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 20px;
+  }
+
+  .service-title {
+    font-size: 20px;
+  }
+
+  .form-input {
+    font-size: 14px;
+  }
+
+  .form-submit {
+    font-size: 14px;
+  }
+}

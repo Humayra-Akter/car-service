@@ -40,6 +40,7 @@ const Login = () => {
     navigate(from, { replace: true });
   };
 
+
   if (loading || sending) {
     return <Loading />;
   }
@@ -58,9 +59,9 @@ const Login = () => {
     const email = emailRef.current.value;
     if (email) {
       await sendPasswordResetEmail(email);
-      toast("Password reset email sent!");
+      toast("Sent email");
     } else {
-      toast("Please enter your email address.");
+      toast("please enter an email");
     }
   };
 

@@ -57,14 +57,7 @@ const Header = () => {
 
           {/* User Actions */}
           <Nav>
-            <NavLink
-              to="/about"
-              className={({ isActive }) =>
-                isActive ? "nav-link active" : "nav-link"
-              }
-            >
-              About
-            </NavLink>
+           
             {user && (
               <>
                 <NavLink

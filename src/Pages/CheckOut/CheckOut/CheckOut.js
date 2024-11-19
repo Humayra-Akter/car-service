@@ -6,6 +6,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import axios from "axios";
 import { toast } from "react-toastify";
+import checkoutBg from "../../../images/banner/banner3.jpg";
+import "./CheckOut.css";
 
 const CheckOut = () => {
   const { serviceId } = useParams();
@@ -24,68 +26,70 @@ const CheckOut = () => {
     axios.post("http://localhost:5000/order", order).then((response) => {
       const { data } = response;
       if (data.insertedId) {
-        toast("your order is booked!!!");
+        toast("Your order has been successfully booked!");
         event.target.reset();
       }
     });
   };
 
   return (
-    <div className="w-50 mx-auto">
-      <PageTitle title="CheckOut"></PageTitle>
-      <h2>Please Order : {service.name}</h2>
-      <form onSubmit={handlePlaceOrder}>
-        <input
-          className="w-100 mb-2"
-          type="text"
-          value={user?.displayName}
-          name="name"
-          placeholder="name"
-          required
-          readOnly
-          disabled
-        />
-        <br />
-        <input
-          className="w-100 mb-2"
-          type="email"
-          value={user?.email}
-          name="email"
-          placeholder="email"
-          required
-          readOnly
-          disabled
-        />
-        <br />
-        <input
-          className="w-100 mb-2"
-          type="text"
-          value={service.name}
-          name="service"
-          placeholder="service"
-          required
-          readOnly
-        />
-        <br />
-        <input
-          className="w-100 mb-2"
-          type="text"
-          autoComplete="off"
-          name="address"
-          placeholder="address"
-          required
-        />
-        <br />
-        <input
-          className="w-100 mb-2"
-          type="text"
-          name="phone"
-          placeholder="phone number"
-          required
-        />
-        <br />
-        <input className="btn btn-primary" type="submit" value="Place Order" />
-      </form>
+    <div
+      className="checkout-container"
+      style={{ backgroundImage: `url(${checkoutBg})` }}
+    >
+      <div className="overlay">
+        <PageTitle title="CheckOut" />
+        <h2 className="service-title">Order Service: {service.name}</h2>
+        <form onSubmit={handlePlaceOrder} className="checkout-form">
+          <input
+            className="form-input"
+            type="text"
+            value={user?.displayName}
+            name="name"
+            placeholder="Name"
+            required
+            readOnly
+            disabled
+          />
+          <input
+            className="form-input"
+            type="email"
+            value={user?.email}
+            name="email"
+            placeholder="Email"
+            required
+            readOnly
+            disabled
+          />
+          <input
+            className="form-input"
+            type="text"
+            value={service.name}
+            name="service"
+            placeholder="Service"
+            required
+            readOnly
+          />
+          <input
+            className="form-input"
+            type="text"
+            autoComplete="off"
+            name="address"
+            placeholder="Address"
+            required
+          />
+          <input
+            className="form-input"
+            type="text"
+            name="phone"
+            placeholder="Phone Number"
+            required
+          />
+          <button className="btn btn-primary form-submit" type="submit">
+            Place Order
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
