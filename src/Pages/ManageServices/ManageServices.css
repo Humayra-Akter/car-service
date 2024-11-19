@@ -1,0 +1,83 @@
+/* Container with background image */
+.manage-services-container {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Semi-transparent overlay */
+.overlay {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 600px;
+  color: black;
+  text-align: center;
+}
+
+/* Title styling */
+.title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #0056b3;
+  font-weight: bold;
+}
+
+/* Services list */
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Individual service card */
+.service-card {
+  padding: 4px 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #0056b3;
+}
+
+.service-card:hover {
+  background: #0056b3;
+  color: #fff;
+}
+
+/* Delete button */
+.delete-btn {
+  background: #ff725e;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: #d9534f;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .overlay {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .service-card {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

@@ -1,8 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import "./AddService.css";
+import banner1 from "../../images/banner/banner2.jpg";
 
 const AddService = () => {
   const { register, handleSubmit } = useForm();
+
   const onSubmit = (data) => {
     console.log(data);
     const url = `http://localhost:5000/service`;
@@ -18,34 +21,42 @@ const AddService = () => {
         console.log(result);
       });
   };
+
   return (
-    <div className="w-50 mx-auto">
-      <h1>Please Add A Service</h1>
-      <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
-        <input
-          className="mb-3"
-          placeholder="name"
-          {...register("name", { required: true, maxLength: 20 })}
-        />
-        <textarea
-          className="mb-3"
-          placeholder="description"
-          {...register("description")}
-        />
-        <input
-          className="mb-3"
-          placeholder="price"
-          type="number"
-          {...register("price")}
-        />
-        <input
-          className="mb-3"
-          placeholder="photo url"
-          type="text"
-          {...register("img")}
-        />
-        <input type="submit" value="Add Service" />
-      </form>
+    <div
+      className="addService-container"
+      style={{ backgroundImage: `url(${banner1})` }}
+    >
+      <div className="addService-card">
+        <h1 className="add-service-title">Add a New Service</h1>
+        <form className="add-service-form" onSubmit={handleSubmit(onSubmit)}>
+          <input
+            className="form-input"
+            placeholder="Name"
+            {...register("name", { required: true, maxLength: 20 })}
+          />
+          <textarea
+            className="form-input"
+            placeholder="Description"
+            {...register("description")}
+          />
+          <input
+            className="form-input"
+            placeholder="Price"
+            type="number"
+            {...register("price")}
+          />
+          <input
+            className="form-input"
+            placeholder="Photo URL"
+            type="text"
+            {...register("img")}
+          />
+          <button type="submit" className="form-submit-btn">
+            Add Service
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
