@@ -1,0 +1,67 @@
+.separator-line {
+  height: 1px;
+  background-color: #007bff; /* Primary color */
+  flex-grow: 1;
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-btn {
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.social-btn span {
+  margin-left: 8px;
+}
+
+.social-btn:hover {
+  transform: scale(1.05);
+}
+
+.google-btn {
+  background-color: #db4437;
+  color: #fff;
+}
+
+.google-btn:hover {
+  background-color: #c33629;
+}
+
+.facebook-btn {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+.facebook-btn:hover {
+  background-color: #314e85;
+}
+
+.github-btn {
+  background-color: #333;
+  color: #fff;
+}
+
+.github-btn:hover {
+  background-color: #242424;
+}
+
+.text-danger {
+  margin-top: 10px;
+  color: #ff4d4d;
+}

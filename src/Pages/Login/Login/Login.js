@@ -12,6 +12,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PageTitle from "../../Shared/PageTitle/PageTitle";
 import axios from "axios";
+import "./Login.css";
+import banner1 from "../../../images/banner/banner1.jpg";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -39,17 +41,16 @@ const Login = () => {
   };
 
   if (loading || sending) {
-    return <Loading></Loading>;
+    return <Loading />;
   }
 
   if (error) {
-    errorElement = <p className="text-dander">Error: {error?.message}</p>;
-  }
-  if (user) {
-    // navigate(from, { replace: true });
+    errorElement = (
+      <p className="text-danger text-center">Error: {error?.message}</p>
+    );
   }
 
-  const navigateRegister = (event) => {
+  const navigateRegister = () => {
     navigate("/register");
   };
 
@@ -57,64 +58,74 @@ const Login = () => {
     const email = emailRef.current.value;
     if (email) {
       await sendPasswordResetEmail(email);
-      toast("Sent email");
+      toast("Password reset email sent!");
     } else {
-      toast("please enter an email");
+      toast("Please enter your email address.");
     }
   };
 
   return (
-    <div className="container w-50 mx-auto">
-      <PageTitle title="Login"></PageTitle>
-      <h2 className="text-primary text-center mt-2">Please Login</h2>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Control
-            ref={emailRef}
-            type="email"
-            placeholder="Enter email"
-            required
-          />
-        </Form.Group>
+    <div
+      className="login-container"
+      style={{ backgroundImage: `url(${banner1})` }}
+    >
+      <div className=" login-box shadow-lg p-4 rounded">
+        <PageTitle title="Login" />
+        <h2 className="text-center text-primary mb-4">Welcome Back!</h2>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email Address</Form.Label>
+            <Form.Control
+              ref={emailRef}
+              type="email"
+              placeholder="Enter email"
+              required
+            />
+          </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Control
-            ref={passwordRef}
-            type="password"
-            placeholder="Password"
-            required
-          />
-        </Form.Group>
-        <Button
-          variant="primary"
-          type="submit"
-          className="d-block w-50 mx-auto mb-2"
-        >
-          Login
-        </Button>
-      </Form>
-      {errorElement}
-      <p>
-        New to car service{" "}
-        <Link
-          to="/register"
-          className="text-primary text-decoration-none pe-auto"
-          onClick={navigateRegister}
-        >
-          Please Register
-        </Link>
-      </p>
-      <p>
-        Forget Password{" "}
-        <button
-          className="text-primary btn btn-link text-decoration-none pe-auto"
-          onClick={resetPassword}
-        >
-          Reset Password
-        </button>
-      </p>
-      <SocialLogin></SocialLogin>
-      <ToastContainer />
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              ref={passwordRef}
+              type="password"
+              placeholder="Enter password"
+              required
+            />
+          </Form.Group>
+
+          <Button variant="primary" type="submit" className="w-100 mb-3">
+            Login
+          </Button>
+        </Form>
+
+        {errorElement}
+
+        <p className="text-center">
+          New here?{" "}
+          <Link
+            to="/register"
+            className="text-primary"
+            onClick={navigateRegister}
+          >
+            Register Now
+          </Link>
+        </p>
+        <p className="text-center">
+          Forgot Password?{" "}
+          <button
+            className="btn btn-link text-primary p-0"
+            onClick={resetPassword}
+          >
+            Reset Password
+          </button>
+        </p>
+
+        <div className="social-login mt-3">
+          <SocialLogin />
+        </div>
+
+        <ToastContainer />
+      </div>
     </div>
   );
 };
