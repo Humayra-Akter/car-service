@@ -37,7 +37,7 @@ const ManageServices = () => {
         <h1 className="title">Manage Your Services</h1>
         <div className="services-list">
           {services.map((service) => (
-            <div key={service._id} className="service-card">
+            <div key={service._id} className="manage-service-card">
               <h6>{service.name}</h6>
               <button
                 className="delete-btn"

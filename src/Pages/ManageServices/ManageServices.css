@@ -36,7 +36,7 @@
 }
 
 /* Individual service card */
-.service-card {
+.manage-service-card {
   padding: 4px 20px;
   border-radius: 10px;
   display: flex;
@@ -45,7 +45,7 @@
   border: 1px solid #0056b3;
 }
 
-.service-card:hover {
+.manage-service-card:hover {
   background: #0056b3;
   color: #fff;
 }

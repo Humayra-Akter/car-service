@@ -1,0 +1,51 @@
+.service-detail-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.service-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.service-title span {
+  color: #6c63ff;
+  font-weight: bold;
+}
+
+.service-info {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.service-info p {
+  font-size: 1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.loading-text {
+  font-size: 1.2rem;
+  color: #888;
+}
+
+.btn-primary {
+  background-color: #6c63ff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #584df3;
+}
