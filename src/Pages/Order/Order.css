@@ -4,7 +4,6 @@
 }
 
 .order-title {
-  color: #333;
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
 }
@@ -31,7 +30,7 @@
 
 .order-card p {
   margin: 0.5rem 0;
-  color: #555;
+  color: #201f1f;
 }
 
 /* Loader styles */
@@ -62,7 +61,7 @@
 .error-container {
   text-align: center;
   color: #ff5252;
-  padding: 20px;
+  padding: 40px;
 }
 
 .error-message {

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
@@ -22,6 +22,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+
   let from = location.state?.from?.pathname || "/";
   let errorElement;
   const [signInWithEmailAndPassword, user, loading, error] =
@@ -34,7 +35,9 @@ const Login = () => {
   }
 
   if (token) {
-    navigate(from, { replace: true });
+   
+      navigate(from, { replace: true });
+    
   }
 
   if (error) {

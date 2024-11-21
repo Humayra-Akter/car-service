@@ -19,6 +19,7 @@ const Order = () => {
       try {
         const { data } = await axiosPrivate.get(url);
         setOrders(data);
+        console.log(orders);
       } catch (err) {
         console.error(err.message);
         setError("Failed to fetch orders. Please try again later.");
@@ -62,10 +63,16 @@ const Order = () => {
           {orders.map((order) => (
             <div key={order._id} className="order-card">
               <p>
-                <strong>Service:</strong> {order.service}
+                <strong>Email:</strong> {order?.email}
               </p>
               <p>
-                <strong>Email:</strong> {order.email}
+                <strong>Service:</strong> {order?.service}
+              </p>
+              <p>
+                <strong>Phone:</strong> {order?.phone}
+              </p>
+              <p>
+                <strong>Address:</strong> {order?.address}
               </p>
             </div>
           ))}
